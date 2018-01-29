@@ -1,0 +1,23 @@
+[
+  {
+    "id": "HyeOkg5Hz",
+    "title": "Товар 1",
+    "cost": 1000,
+    "description": "Описание товара 1\nВторая строка",
+    "image": "https://pp.userapi.com/c830608/v830608863/59b94/Gn3z3-fI-hE.jpg"
+  },
+  {
+    "id": "rJnayxqBz",
+    "title": "Товар 2",
+    "cost": 2000,
+    "description": "Описание товара 2\nВторая строка",
+    "image": "https://pp.userapi.com/c830608/v830608863/59b9c/CtQ79rJmO4E.jpg"
+  },
+  {
+    "id": "HJTTyxcHG",
+    "title": "Товар 3",
+    "cost": 5000,
+    "description": "Описание товара 3\nВторая строка",
+    "image": "https://pp.userapi.com/c830608/v830608863/59b8c/uFtXSxh8Ee4.jpg"
+  }
+]
