@@ -4,7 +4,7 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import style from './validated-field.css'
 
-export const ValidatedField = ({ FieldType, input, label, type, meta: { touched, error } }) => (
+const ValidatedField = ({ FieldType, input, label, type, meta: { touched, error } }) => (
     <label className={style.label}>
         {`${label}: `}
         <FieldType
@@ -30,3 +30,5 @@ ValidatedField.defaultProps = {
     label: '',
     type: 'text'
 }
+
+export default ValidatedField

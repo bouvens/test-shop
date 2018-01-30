@@ -4,7 +4,8 @@ import ImmutablePropTypes from 'react-immutable-proptypes'
 import { connect } from 'react-redux'
 import { bindActionCreators } from 'redux'
 import actions from '../actions'
-import { Article, EditArticle } from '../components'
+import { Article } from '../components'
+import EditArticle from './edit-article'
 
 @connect(
     (state, { match: { params: { id } } }) => ({

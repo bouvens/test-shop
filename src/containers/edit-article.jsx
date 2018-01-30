@@ -1,7 +1,7 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import { Field, reduxForm } from 'redux-form'
-import { ValidatedField } from './validated-field'
+import { ValidatedField } from '../components'
 
 const EditArticle = ({ handleSubmit, submitting }) => (
     <form onSubmit={handleSubmit}>
