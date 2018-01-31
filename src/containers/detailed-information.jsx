@@ -34,7 +34,7 @@ export default class DetailedInformation extends PureComponent {
         article: void 0
     }
 
-    componentWillMount () {
+    componentDidMount () {
         this.props.loadOneArticle(this.getId())
     }
 

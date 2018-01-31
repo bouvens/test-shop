@@ -24,7 +24,7 @@ export default class SimpleShop extends PureComponent {
         articles: void 0
     }
 
-    componentWillMount () {
+    componentDidMount () {
         this.props.loadArticles()
     }
 
