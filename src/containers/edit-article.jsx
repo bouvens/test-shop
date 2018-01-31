@@ -15,6 +15,7 @@ const EditArticle = ({ handleSubmit, submitting, handleCancel }) => (
         <Field
             name="cost"
             label="Цена"
+            parse={parseNumber}
             component={ValidatedField}
         />
         <Field
@@ -44,11 +45,17 @@ const validate = ({ title, cost }) => {
     if (!title) {
         errors.title = 'Пожалуйста, укажите название товара'
     }
-    if (!cost) {
-        errors.cost = 'Пожалуйста, укажите цену'
+    if (Number.isNaN(Number(cost))) {
+        errors.cost = 'Цена должна быть числом'
     }
 
     return errors
 }
+
+const parseNumber = (value) => (
+    Number.isNaN(Number(value)) || !value
+        ? value
+        : Number(value)
+)
 
 export default reduxForm({ form: 'saveArticle', validate })(EditArticle)
