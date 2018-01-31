@@ -15,6 +15,7 @@ import EditArticle from './edit-article'
     (dispatch) => bindActionCreators({
         loadOneArticle: actions.articles.loadOneArticle,
         editArticle: actions.articles.editArticle,
+        cancelEditing: actions.articles.cancelEditing,
         saveArticle: actions.articles.saveArticle
     }, dispatch)
 )
@@ -24,6 +25,7 @@ export default class DetailedInformation extends PureComponent {
         isEdit: PropTypes.bool.isRequired,
         loadOneArticle: PropTypes.func.isRequired,
         editArticle: PropTypes.func.isRequired,
+        cancelEditing: PropTypes.func.isRequired,
         saveArticle: PropTypes.func.isRequired,
         match: PropTypes.objectOf(PropTypes.any).isRequired
     }
@@ -55,6 +57,7 @@ export default class DetailedInformation extends PureComponent {
         return this.props.isEdit
             ? <EditArticle
                 onSubmit={this.saveArticle}
+                handleCancel={this.props.cancelEditing}
                 initialValues={{ ...article.toJS() }}
             />
             : <Article

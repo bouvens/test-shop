@@ -11,6 +11,7 @@ export default function (state = Map({
         case TYPES.LOAD_ARTICLES:
         case TYPES.LOAD_ARTICLE_DETAILS:
         case TYPES.SAVE_ARTICLE:
+        case TYPES.CANCEL_EDITING:
             return state.set('isEdit', false)
         case TYPES.SET_ERROR:
             return state

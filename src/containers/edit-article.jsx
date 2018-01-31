@@ -3,8 +3,9 @@ import PropTypes from 'prop-types'
 import { Field, reduxForm } from 'redux-form'
 import { ValidatedField } from '../components'
 
-const EditArticle = ({ handleSubmit, submitting }) => (
+const EditArticle = ({ handleSubmit, submitting, handleCancel }) => (
     <form onSubmit={handleSubmit}>
+        <a href="#" role="button" onClick={handleCancel}>← Отменить редактирование</a>
         <h2>Редактирование товара</h2>
         <Field
             name="title"
@@ -27,13 +28,14 @@ const EditArticle = ({ handleSubmit, submitting }) => (
             label="Изображение"
             component={ValidatedField}
         />
-        <button onClick={handleSubmit} disabled={submitting}>Редактировать товар</button>
+        <button onClick={handleSubmit} disabled={submitting}>Сохранить товар</button>
     </form>
 )
 
 EditArticle.propTypes = {
     handleSubmit: PropTypes.func.isRequired,
-    submitting: PropTypes.bool.isRequired
+    submitting: PropTypes.bool.isRequired,
+    handleCancel: PropTypes.func.isRequired
 }
 
 const validate = ({ title, cost }) => {

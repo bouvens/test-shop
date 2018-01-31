@@ -41,6 +41,7 @@ export const loadOneArticle = (id) => (dispatch) => myRequest
     })
 
 export const editArticle = () => ({ type: TYPES.EDIT_ARTICLE })
+export const cancelEditing = () => ({ type: TYPES.CANCEL_EDITING })
 
 export const saveArticle = (article) => (dispatch) => myRequest
     .post(getProductUrl(article.id), article)
