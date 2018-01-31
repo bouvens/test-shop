@@ -40,12 +40,10 @@ export default class DetailedInformation extends PureComponent {
 
     getId = () => this.props.match.params.id
 
-    saveArticle = (values) => {
-        this.props.saveArticle({
-            id: this.getId(),
-            ...values
-        })
-    }
+    saveArticle = (values) => this.props.saveArticle({
+        id: this.getId(),
+        ...values
+    })
 
     render () {
         const { article } = this.props

@@ -5,7 +5,6 @@ import { ValidatedField } from '../components'
 
 const EditArticle = ({ handleSubmit, submitting, handleCancel }) => (
     <form onSubmit={handleSubmit}>
-        <a href="#" role="button" onClick={handleCancel}>← Отменить редактирование</a>
         <h2>Редактирование товара</h2>
         <Field
             name="title"
@@ -30,6 +29,10 @@ const EditArticle = ({ handleSubmit, submitting, handleCancel }) => (
             component={ValidatedField}
         />
         <button onClick={handleSubmit} disabled={submitting}>Сохранить товар</button>
+        {!submitting &&
+        <p>
+            <a href="#" role="button" onClick={handleCancel}>← Отменить редактирование</a>
+        </p>}
     </form>
 )
 

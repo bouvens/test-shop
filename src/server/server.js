@@ -39,7 +39,9 @@ app.post('/product/:id', jsonParser, (req, res) => {
         ..._.pick(req.body, ['title', 'cost', 'description', 'image'])
     }
 
-    res.json(products[i])
+    setTimeout(() => {
+        res.json(products[i])
+    }, 1000)
 })
 
 app.listen(3001, () => {
