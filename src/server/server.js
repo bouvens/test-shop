@@ -34,10 +34,11 @@ app.post('/product/:id', jsonParser, (req, res) => {
         return
     }
 
-    products[i] = {
-        ...products[i],
-        ..._.pick(req.body, ['title', 'cost', 'description', 'image'])
-    }
+    products[i] = _.extend(
+        {},
+        products[i],
+        _.pick(req.body, ['title', 'cost', 'description', 'image'])
+    )
 
     setTimeout(() => {
         res.json(products[i])
