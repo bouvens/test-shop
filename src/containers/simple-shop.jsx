@@ -7,33 +7,33 @@ import actions from '../actions'
 import { Articles } from '../components'
 
 class SimpleShop extends PureComponent {
-    static propTypes = {
-        articles: ImmutablePropTypes.map,
-        loadArticles: PropTypes.func.isRequired
-    }
+  static propTypes = {
+    articles: ImmutablePropTypes.map,
+    loadArticles: PropTypes.func.isRequired
+  }
 
-    static defaultProps = {
-        articles: void 0
-    }
+  static defaultProps = {
+    articles: void 0
+  }
 
-    componentDidMount () {
-        this.props.loadArticles()
-    }
+  componentDidMount () {
+    this.props.loadArticles()
+  }
 
-    render () {
-        const { articles } = this.props
+  render () {
+    const {articles} = this.props
 
-        return (articles.count()
-            ? <Articles articles={articles} />
-            : 'Товары загружаются...')
-    }
+    return (articles.count()
+      ? <Articles articles={articles} />
+      : 'Товары загружаются...')
+  }
 }
 
 export default connect(
-    (state) => ({
-        articles: state.articles
-    }),
-    (dispatch) => bindActionCreators({
-        loadArticles: actions.articles.loadArticles
-    }, dispatch)
+  (state) => ({
+    articles: state.articles
+  }),
+  (dispatch) => bindActionCreators({
+    loadArticles: actions.articles.loadArticles
+  }, dispatch)
 )(SimpleShop)

@@ -3,25 +3,25 @@ import ImmutablePropTypes from 'react-immutable-proptypes'
 import { connect } from 'react-redux'
 
 export default function withError (WrappedComponent) {
-    class Wrapped extends PureComponent {
+  class Wrapped extends PureComponent {
         static propTypes = {
-            error: ImmutablePropTypes.map
+          error: ImmutablePropTypes.map
         }
         static defaultProps = {
-            error: void 0
+          error: void 0
         }
 
         render () {
-            const { error, ...passed } = this.props
-            return (
-                error
-                    ? `Ошибка! ${error.get('description')}`
-                    : <WrappedComponent {...passed} />
-            )
+          const { error, ...passed } = this.props
+          return (
+            error
+              ? `Ошибка! ${error.get('description')}`
+              : <WrappedComponent {...passed} />
+          )
         }
-    }
+  }
 
-    return connect((state) => ({
-        error: state.application.get('error')
-    }))(Wrapped)
+  return connect((state) => ({
+    error: state.application.get('error')
+  }))(Wrapped)
 }
