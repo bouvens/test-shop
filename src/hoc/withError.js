@@ -3,9 +3,6 @@ import ImmutablePropTypes from 'react-immutable-proptypes'
 import { connect } from 'react-redux'
 
 export default function withError (WrappedComponent) {
-    @connect((state) => ({
-        error: state.application.get('error')
-    }))
     class Wrapped extends PureComponent {
         static propTypes = {
             error: ImmutablePropTypes.map
@@ -24,5 +21,7 @@ export default function withError (WrappedComponent) {
         }
     }
 
-    return Wrapped
+    return connect((state) => ({
+        error: state.application.get('error')
+    }))(Wrapped)
 }

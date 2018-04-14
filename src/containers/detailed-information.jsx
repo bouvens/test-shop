@@ -7,19 +7,7 @@ import actions from '../actions'
 import { Article } from '../components'
 import EditArticle from './edit-article'
 
-@connect(
-    (state, { match: { params: { id } } }) => ({
-        article: state.articles.get(id),
-        isEdit: state.application.get('isEdit')
-    }),
-    (dispatch) => bindActionCreators({
-        loadOneArticle: actions.articles.loadOneArticle,
-        editArticle: actions.articles.editArticle,
-        cancelEditing: actions.articles.cancelEditing,
-        saveArticle: actions.articles.saveArticle
-    }, dispatch)
-)
-export default class DetailedInformation extends PureComponent {
+class DetailedInformation extends PureComponent {
     static propTypes = {
         article: ImmutablePropTypes.map,
         isEdit: PropTypes.bool.isRequired,
@@ -64,3 +52,16 @@ export default class DetailedInformation extends PureComponent {
             />
     }
 }
+
+export default connect(
+    (state, { match: { params: { id } } }) => ({
+        article: state.articles.get(id),
+        isEdit: state.application.get('isEdit')
+    }),
+    (dispatch) => bindActionCreators({
+        loadOneArticle: actions.articles.loadOneArticle,
+        editArticle: actions.articles.editArticle,
+        cancelEditing: actions.articles.cancelEditing,
+        saveArticle: actions.articles.saveArticle
+    }, dispatch)
+)(DetailedInformation)

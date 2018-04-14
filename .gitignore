@@ -3,9 +3,6 @@
 # dependencies
 /node_modules
 
-# testing
-/coverage
-
 # production
 /build
 
@@ -21,6 +18,3 @@ yarn-debug.log*
 yarn-error.log*
 
 /.idea
-
-package-lock.json
-yarn.lock

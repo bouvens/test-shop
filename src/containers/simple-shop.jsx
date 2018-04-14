@@ -6,15 +6,7 @@ import { bindActionCreators } from 'redux'
 import actions from '../actions'
 import { Articles } from '../components'
 
-@connect(
-    (state) => ({
-        articles: state.articles
-    }),
-    (dispatch) => bindActionCreators({
-        loadArticles: actions.articles.loadArticles
-    }, dispatch)
-)
-export default class SimpleShop extends PureComponent {
+class SimpleShop extends PureComponent {
     static propTypes = {
         articles: ImmutablePropTypes.map,
         loadArticles: PropTypes.func.isRequired
@@ -36,3 +28,12 @@ export default class SimpleShop extends PureComponent {
             : 'Товары загружаются...')
     }
 }
+
+export default connect(
+    (state) => ({
+        articles: state.articles
+    }),
+    (dispatch) => bindActionCreators({
+        loadArticles: actions.articles.loadArticles
+    }, dispatch)
+)(SimpleShop)
