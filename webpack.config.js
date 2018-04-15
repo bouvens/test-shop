@@ -1,5 +1,5 @@
-const path = require('path')
 const webpack = require('webpack')
+const HtmlWebPackPlugin = require('html-webpack-plugin')
 
 module.exports = {
   entry: [
@@ -11,26 +11,51 @@ module.exports = {
       {
         test: /\.(js|jsx)$/,
         exclude: /node_modules/,
-        use: ['babel-loader', 'eslint-loader']
+        use: ['babel-loader']
+      },
+      {
+        test: /\.html$/,
+        use: [
+          {
+            loader: 'html-loader',
+            options: {minimize: true}
+          }
+        ]
       },
       {
         test: /\.css$/,
-        loader: 'style-loader!css-loader?modules&importLoaders=1&localIdentName=[name]__[local]___[hash:base64:5]'
+        use: [
+          {
+            loader: 'style-loader'
+          },
+          {
+            loader: 'css-loader',
+            options: {
+              modules: true,
+              importLoaders: 1,
+              localIdentName: '[name]_[local]_[hash:base64]',
+              sourceMap: true,
+              minimize: true
+            }
+          }
+        ]
       }
     ]
   },
   resolve: {
-    extensions: ['*', '.js', '.jsx']
+    extensions: ['.js', '.jsx']
   },
   output: {
-    path: path.join(__dirname, '/public'),
-    publicPath: '/',
-    filename: 'bundle.js'
+    publicPath: ''
   },
   plugins: [
-    new webpack.HotModuleReplacementPlugin()
+    new webpack.HotModuleReplacementPlugin(),
+    new HtmlWebPackPlugin({
+      template: './public/index.html'
+    })
   ],
   devServer: {
+    historyApiFallback: true,
     contentBase: './public',
     hot: true
   }
