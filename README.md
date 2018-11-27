@@ -24,13 +24,14 @@
 ```shell
 git clone git@github.com:bouvens/test-shop.git
 cd test-shop
+yarn
 ```
 
 ### Запускаем
 
 Фронт:
 ```shell
-npm start
+yarn start
 ```
 
 Бэк:
@@ -40,5 +41,7 @@ node ./src/server
 
 Или одновременно:
 ```shell
-npm run start:all
+yarn run start:all
 ```
+
+Открываем в браузере: [http://localhost:8080](http://localhost:8080)
