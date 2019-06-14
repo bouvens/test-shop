@@ -2,7 +2,6 @@ import React, { PureComponent } from 'react'
 import PropTypes from 'prop-types'
 import ImmutablePropTypes from 'react-immutable-proptypes'
 import { connect } from 'react-redux'
-import { bindActionCreators } from 'redux'
 import actions from '../actions'
 import { Articles } from '../components'
 
@@ -33,7 +32,7 @@ export default connect(
   (state) => ({
     articles: state.articles
   }),
-  (dispatch) => bindActionCreators({
+  {
     loadArticles: actions.articles.loadArticles
-  }, dispatch)
+  }
 )(SimpleShop)

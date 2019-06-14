@@ -2,7 +2,6 @@ import React, { PureComponent } from 'react'
 import PropTypes from 'prop-types'
 import ImmutablePropTypes from 'react-immutable-proptypes'
 import { connect } from 'react-redux'
-import { bindActionCreators } from 'redux'
 import actions from '../actions'
 import { Article } from '../components'
 import EditArticle from './edit-article'
@@ -58,10 +57,10 @@ export default connect(
     article: state.articles.get(id),
     isEdit: state.application.get('isEdit')
   }),
-  (dispatch) => bindActionCreators({
+  {
     loadOneArticle: actions.articles.loadOneArticle,
     editArticle: actions.articles.editArticle,
     cancelEditing: actions.articles.cancelEditing,
     saveArticle: actions.articles.saveArticle
-  }, dispatch)
+  }
 )(DetailedInformation)
